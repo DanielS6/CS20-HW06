@@ -1,0 +1,112 @@
+/* Address gets hidden when order is for pickup */
+.hidden {
+    display: none;
+}
+
+/* Spec says to align labels and addresses for name and address, does not */
+/* mention phone number. Since phone number isn't the last child element in */
+/* its parent, need to exclude based on index (its 5th) */
+p.userInfo:not(:nth-child(5)):not(.hidden) {
+    display: table-row;
+}
+p.userInfo:not(:nth-child(5)) label {
+    display: table-cell;
+    /* Add a bit of space between label and input */
+    padding-right: 10px;
+    /* and between rows */
+    padding-bottom: 16px;
+}
+p.userInfo:not(:nth-child(5)) input {
+    display: table-cell;
+}
+
+/* Styles for the order confirmation popup */
+#submission-popup-wrapper,
+#submission-popup-dialog {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+#submission-popup-wrapper {
+    background-color: #FFFFFFA6;
+}
+#submission-popup-dialog {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 1px solid black;
+    padding-top: 5px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+}
+#submission-popup-label {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#submission-popup-label,
+#submission-popup-text {
+    padding: 5px;
+    display: block;
+}
+#submission-popup-wrapper hr {
+    margin-bottom: 0px;
+}
+#submission-popup-continue {
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+}
+#submission-popup-continue:hover {
+    background-color: #e8e8e8;
+    cursor: pointer;
+}
+
+/* The following styles are ONLY for the confirmation page, and thus scoped */
+/* to .confirmation-page, which is added to the <body> element */
+.confirmation-page {
+    font-size: 16pt;
+}
+
+.confirmation-page h1 {
+    /* Center the heading text */
+    text-align: center;
+}
+
+.confirmation-page #body-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* Reduce vertical space between details */
+.confirmation-page #customer-details p,
+.confirmation-page #timeline-details p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Separate order sections */
+.confirmation-page #order-details,
+.confirmation-page #timeline-details {
+    padding-top: 20px;
+}
+.confirmation-page table,
+.confirmation-page th,
+.confirmation-page td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    /* For some reason the .confirmation-page isn't enough */
+    font-size: 16pt;
+}
+
+.confirmation-page table {
+    width: 100%;
+}
+
+.confirmation-page .subtotal-row {
+    border-top: 3px solid black;
+}
